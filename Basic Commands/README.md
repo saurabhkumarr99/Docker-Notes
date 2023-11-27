@@ -1,6 +1,6 @@
 # Docker Basic Commands
 
-This repository provides a guide to some fundamental Docker commands for container management.
+This repository provides a guide to some fundamental Docker commands for container and network management.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -18,12 +18,18 @@ This repository provides a guide to some fundamental Docker commands for contain
   - [docker rm](#docker-rm)
   - [docker rmi](#docker-rmi)
   - [docker exec](#docker-exec)
+  - [docker network create](#docker-network-create)
+  - [docker network ls](#docker-network-ls)
+  - [docker network inspect](#docker-network-inspect)
+  - [docker network connect](#docker-network-connect)
+  - [docker network disconnect](#docker-network-disconnect)
+  - [docker network rm](#docker-network-rm)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
 
-This repository aims to assist individuals new to Docker by providing a quick reference to commonly used Docker commands for managing containers and images.
+This repository aims to assist individuals new to Docker by providing a quick reference to commonly used Docker commands for managing containers, images, and networks.
 
 ## Installation
 
@@ -39,4 +45,13 @@ Once Docker is installed, these commands can be executed via the terminal or com
 
 The `docker run` command creates and starts a new container based on a Docker image.
 
+<!-- Other existing commands -->
 
+### Docker Network Commands
+
+#### docker network create
+
+Create a new Docker network:
+
+```bash
+docker network create network_name
