@@ -1,0 +1,48 @@
+
+1- Docker version
+   docker -v
+   
+  
+2- Create images
+   a-Create a jar file of project
+   b-Create Dockerfile in same location
+     FROM openjdk:18
+     MAINTAINER Saurabh Kumar Rai 
+     WORKDIR /
+     ADD Calculator.jar Calculator.jar
+     ENTRYPOINT ["java","-jar","Calculator.jar"]
+   c-docker build -t calculator .
+
+3- Pull image
+   docker pull image-name
+   
+   
+4- All Images
+   docker images
+   
+   
+5- Remove image
+   docker rmi image-name
+  
+ 
+6- Create and Run container
+   docker run
+   docker run --name calculatorContainer1 -it calculator
+
+--------------------------------------------------------------------------
+
+7- Push image
+
+  a-docker login
+
+  b-docker tag calculator saurabhkumarr99/calculatorapp:v1.0
+  
+  c-docker push saurabhkumarr99/calculatorapp:v1.0
+  
+  d-docker images
+
+8- Pull image
+   docker pull saurabhkumarr99/calculatorapp:v1.0
+
+9- Docker run
+   docker run --name calculatorContainer1 -it saurabhkumarr99/calculatorapp:v1.0

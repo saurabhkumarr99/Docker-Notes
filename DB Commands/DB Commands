@@ -1,0 +1,149 @@
+
+1- Docker version
+   docker -v
+   
+  
+2- Create images
+
+
+3- Pull image
+   docker pull image-name
+   docker pull mysql:latest
+   
+   
+4- All Images
+   docker images
+   
+   
+5- Remove image
+   docker rmi image-name
+  
+ 
+6- Create and Run container
+   docker run
+   docker run --name (imageContainer-name) -d (image-name)
+   docker run --name (imageContainer-name) -it -d (image-name)
+   
+   docker run --name mongodbContainer1 -p 27017:27017  -it -d mongo
+
+   docker run --name mysqlContainer1 -e MYSQL_ROOT_PASSWORD=root -p 3309:3306  -it -d mysql:latest
+   docker run --name mysqlContainer2 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=krishisathi -p 3309:3306 -d mysql
+
+   docker network create krishisathi-network
+   docker run --name mysqlContainer1 --network krishisathi-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=krishisathi -d mysql
+  
+  
+7- List all container
+   docker ps -a
+
+  
+8- List all running container
+   docker ps 
+  
+ 
+9- Stop container
+   docker stop mongodbContainer1
+   
+   
+10- Restart Container
+   docker container restart   containerName
+   
+   
+11- Remove container
+    docker rm container-name
+  
+  
+-----------------------------------------------------------------------------------------------  Mongo DB ------------------------------------------------------------------------------------------  
+    
+12- Execute mongodb
+
+    a- docker exec -it mongodbContainer1 /bin/bash
+       mongosh
+       
+    b- docker exec -it mysqlContainer1 bash -l
+       mysql -uroot -proot
+    
+    
+13- Version
+
+
+14- show all database
+
+    show dbs
+    SHOW DATABASES;
+    
+    
+15- Create database
+
+    a- use db-name
+    b- CREATE DATABASE krishisathi;
+     
+     
+16- Show current database
+    db
+     
+     
+17- Drop database
+
+    a- db.dropDatabase()
+    b- DROP DATABASE  krishisathi;
+    
+     
+18 a- Create collection
+      db.createCollection('collection name')
+     
+   b- Craete Table
+     CREATE TABLE Persons (     PersonID int,     LastName varchar(255),     FirstName varchar(255),     Address varchar(255),     City varchar(255) );
+  
+     
+19- a- show all collections
+       show collections
+       
+    b- show all tables
+       use krishisathi;
+       SHOW TABLES;
+       select * from Persons ;
+       
+       
+     
+20- a- Drop collection
+       db.collection_name.drop()
+      
+    b- DROP TABLE Persons ;
+       DROP TABLE Persons ;
+     
+     
+21- a- insert json data -deprecated
+       db.(collection_name).insert({})
+       
+    b- insert one data
+       db.(collection_name).insertOne({})
+       
+    c- insert multiple data
+       db.(collection_name).insertMany({},{})
+    
+     d-INSERT INTO Persons (PersonID,LastName,FirstName,Address,City) VALUES (1,"ln","fn","ad","ct");
+      
+22- Get all data from collection
+    db.collection_name.find()
+    
+    
+23- Update data
+    db.collection_name.updateOne({_id: ObjectId("642a82f9a87607adde95e81c")},{$set:{name:'student33'}})
+    
+    
+24- Delete data
+    a-remove() --deprecated
+     db.collection_name.remove({_id: ObjectId("642a82f9a87607adde95e81c")})
+      
+      
+25- Exit from mongodb
+    exit
+    exit
+ 
+ 
+    
+docker commit mysql-container yourusername/mysql-image:latest
+docker login
+docker push yourusername/mysql-image:latest
+docker pull yourusername/mysql-image:latest

@@ -1,0 +1,56 @@
+
+1- Docker version
+   docker -v
+   
+  
+2- Create images
+
+   a-build  project
+     ng build --configuration production 
+
+   b-Create Dockerfile inside project
+      FROM nginx:1.17.1-alpine
+      Copy /dist/krishi-sathi-front-end /usr/share/nginx/html
+
+
+   c-docker build -t krishisathifrontend .
+
+3- Pull image
+   docker pull image-name
+   
+   
+4- All Images
+   docker images
+   
+   
+5- Remove image
+   docker rmi image-name
+  
+ 
+6- Create and Run container
+   docker run
+   docker run --name krishisathifrontendContainer1  -p 4200:80 krishisathifrontend
+   docker run --name krishisathifrontendContainer1 --network krishisathi-network  -p 4200:80 krishisathifrontend1
+
+ 
+7-go to localhost:80
+
+--------------------------------------------------------------------------
+
+7- Push image
+
+  a-docker login
+
+  b-docker tag krishisathifrontend saurabhkumarr99/krishisathifrontend:v1.0
+  
+  c-docker push saurabhkumarr99/krishisathifrontend:v1.0
+  
+  d-docker images
+
+8- Pull image
+   docker pull saurabhkumarr99/krishisathifrontend:v1.0
+
+9- Docker run
+   docker run --name krishisathifrontendContainer1 -d -p 4200:80 saurabhkumarr99/krishisathifrontend:v1.1
+ 
+  
