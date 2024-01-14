@@ -1,0 +1,19 @@
+version: '2'
+services:
+  create-topic:
+    image: wurstmeister/kafka
+    container_name: create-topic
+    networks:
+      - kafka-net
+    command: >
+      bash -c "sleep 10 && kafka-topics.sh
+      --create --zookeeper zookeeper:2181
+      --replication-factor 1 --partitions 1
+      --topic your_topic_name"
+    depends_on:
+      - kafka
+      - zookeeper
+
+networks:
+  kafka-net:
+    external: true
