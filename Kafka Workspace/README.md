@@ -60,9 +60,9 @@ To create a Kafka topic, follow these steps:
   docker exec -it  <your_project_name>_kafka_1 kafka-topics.sh --delete --topic my-topic --bootstrap-server localhost:9092
   ```
 
-### Stop and Remove All Containers
+### test topics
 
   ```bash
-  docker-compose -f docker-compose-kafka.yml down
-  docker-compose -f docker-compose-create-topic.yml down
-```
+  docker exec -it  <your_project_name>_kafka_1 kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092
+  docker exec -it  <your_project_name>_kafka_1 kafka-console-consumer.sh --topic my-topic --from-beginning --bootstrap-server localhost:9092
+ ```
